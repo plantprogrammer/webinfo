@@ -1,3 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-  javascript:alert(document.lastModified);
+chrome.tabs.getSelected(null, function(tab) {
+	var date;
+	chrome.tabs.executeScript(
+	{
+		code: "date = document.lastModified"
+	},getDate);
+	}
+	)
+	function getDate(results)
+	{
+		document.write("<p>Last updated:</p>" + results);
+	}
 }
+);
